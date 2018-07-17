@@ -2,18 +2,13 @@
 const getSavedNotes = () => {
     const notesJSON = localStorage.getItem('notes')
 
-    if (notesJSON !== null) {
-        return JSON.parse(notesJSON)
-    } else {
-        return []
-    }
+    return (notesJSON !== null) ? JSON.parse(notesJSON) : []
 }
 
 // Save the notes to localStorage
 const saveNotes = (notes) => {
     localStorage.setItem('notes', JSON.stringify(notes))
 }
-
 
 //Remove a note from the list
 const removeNote = (id) => {
@@ -24,6 +19,7 @@ const removeNote = (id) => {
     }
 
 } 
+
 // Generate the DOM structure for a note
 const generateNoteDOM = (note) => {
     const noteEl = document.createElement('div')
